@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <stdio.h>
+#include <exception>
 #include "PhoneticFinder.hpp"
 using namespace std;
 
@@ -59,7 +60,7 @@ namespace phonetic{
         }
        
         std::string errorMessage = std::string("Did not find the word '")+s2+("' in the text");
-   throw std::runtime_error(errorMessage);
+   throw std::out_of_range(errorMessage);
 
 
     }
