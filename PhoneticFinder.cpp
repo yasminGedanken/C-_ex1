@@ -55,8 +55,9 @@ namespace phonetic{
                   break;
             }
         }
+            }
         if((i)==s2.length()) return word;
-       }
+       
         }
        
         std::string errorMessage = std::string("Did not find the word '")+s2+("' in the text");
