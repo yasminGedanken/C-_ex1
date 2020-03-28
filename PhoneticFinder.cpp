@@ -16,21 +16,17 @@ namespace phonetic{
     string find(string s1,string s2){
      stringstream s(s1); //from stackoverflow.com
      string word;
-  // bool ans=false;
     string ans;
 
         while(s>>word){
-       // ans =false;
        int count=0;
             if(s2.length()==word.length()){
               
             for(int i=0; i<word.length();i++){
 
-              if(s2.at(i)==word.at(i)){
+              if(s2.at(i)==word.at(i)||(s2.at(i)==word.at(i)+32||s2.at(i)==word.at(i)-32)){
                 count++;
-                } else if(s2.at(i)==word.at(i)+32||s2.at(i)==word.at(i)-32)
-                count++;
-              else{
+                } else {
             if(s2.at(i)=='v'|| s2.at(i)=='w'||s2.at(i)=='V'||s2.at(i)=='W') {
                 if(word.at(i)=='v'|| word.at(i)=='w'||word.at(i)=='V'||word.at(i)=='W')
               count++;
@@ -74,18 +70,18 @@ namespace phonetic{
        }
             }}}}}
             
+                }
             }
             }
-            }
-       if(count== s2.length()) ans.assign(word);
+       if(count== s2.length()) return word;
+        
         }
-       if(ans.empty()){
         std::string errorMessage = std::string("Did not find the word '")+s2+("' in the text");
    throw std::out_of_range(errorMessage);
        }
 
-       return ans;
+     
 
-    }
+    
 
 };
